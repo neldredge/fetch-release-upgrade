@@ -21,10 +21,10 @@ APT_ARGS="-o Dir::Etc::SourceList=../sources.list \
     -o Dir::Etc::SourceParts=/nonexistent \
     -o Dir::State::Lists=../lists"
 
-apt-get -s  $APT_ARGS update
+apt-get  $APT_ARGS update
 
 echo "Calculating new packages, download will start soon"
 
 apt-get $APT_ARGS download \
-    `apt-get -s $APT_ARGS dist-upgrade |grep "^Inst " |cut -d ' ' -f2`
+    `apt-get -s $APT_ARGS dist-upgrade |grep "^Inst " |cut -d ' ' -f2 |sort`
 
