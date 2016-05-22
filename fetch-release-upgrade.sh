@@ -11,7 +11,7 @@ NEW_CODENAME="$1"
 . /etc/lsb-release
 
 cat /etc/apt/sources.list /etc/apt/sources.list.d/*.list \
-    |grep -v "deb-src" |sed "s/$DISTRIB_CODENAME/$NEW_CODENAME/g" >sources.list 
+    |grep -v "deb-src" |sed "s/$DISTRIB_CODENAME/$NEW_CODENAME/g"| sed "s/old-releases/archive/g" >sources.list
 
 mkdir lists debs
 
